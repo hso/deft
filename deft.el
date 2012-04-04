@@ -356,7 +356,7 @@ Set to nil to hide."
   "Strip the path and extension from filename FILE."
   (setq file (file-name-nondirectory file))
   (if (> (length deft-extension) 0)
-      (setq file (replace-regexp-in-string (concat "\." deft-extension "$") "" file)))
+      (setq file (replace-regexp-in-string (concat "\\." deft-extension "$") "" file)))
   file)
 
 (defun deft-find-all-files ()
@@ -366,7 +366,7 @@ Set to nil to hide."
         ;; List all files
         (setq files
               (directory-files deft-directory t
-                               (concat "\." deft-extension "$") t))
+                               (concat "\\." deft-extension "$") t))
         ;; Filter out files that are not readable or are directories
         (dolist (file files)
           (when (and (file-readable-p file)
